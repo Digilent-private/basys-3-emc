@@ -60,7 +60,7 @@ architecture Behavioral of vga_ctrl is
   COMPONENT MouseCtl
   GENERIC
   (
-     SYSCLK_FREQUENCY_HZ : integer := 100000000;
+     SYSCLK_FREQUENCY_HZ : integer := 162000000;
      CHECK_PERIOD_MS     : integer := 500;
      TIMEOUT_PERIOD_MS   : integer := 100
   );
@@ -125,17 +125,32 @@ architecture Behavioral of vga_ctrl is
 --  constant H_POL : std_logic := '1';
 --  constant V_POL : std_logic := '1';
 
-  --***1920x1080@60Hz***--
-  constant FRAME_WIDTH : natural := 1920;
-  constant FRAME_HEIGHT : natural := 1080;
+--  --***1920x1080@60Hz***--
+--  constant FRAME_WIDTH : natural := 1920;
+--  constant FRAME_HEIGHT : natural := 1080;
   
-  constant H_FP : natural := 88; --H front porch width (pixels)
-  constant H_PW : natural := 44; --H sync pulse width (pixels)
-  constant H_MAX : natural := 2200; --H total period (pixels)
+--  constant H_FP : natural := 88; --H front porch width (pixels)
+--  constant H_PW : natural := 44; --H sync pulse width (pixels)
+--  constant H_MAX : natural := 2200; --H total period (pixels)
   
-  constant V_FP : natural := 4; --V front porch width (lines)
-  constant V_PW : natural := 5; --V sync pulse width (lines)
-  constant V_MAX : natural := 1125; --V total period (lines)
+--  constant V_FP : natural := 4; --V front porch width (lines)
+--  constant V_PW : natural := 5; --V sync pulse width (lines)
+--  constant V_MAX : natural := 1125; --V total period (lines)
+  
+--  constant H_POL : std_logic := '1';
+--  constant V_POL : std_logic := '1';
+  
+  --***1600x1200@60Hz***--
+  constant FRAME_WIDTH : natural := 1600;
+  constant FRAME_HEIGHT : natural := 1200;
+  
+  constant H_FP : natural := 64; --H front porch width (pixels)
+  constant H_PW : natural := 192; --H sync pulse width (pixels)
+  constant H_MAX : natural := 2160; --H total period (pixels)
+  
+  constant V_FP : natural := 1; --V front porch width (lines)
+  constant V_PW : natural := 3; --V sync pulse width (lines)
+  constant V_MAX : natural := 1250; --V total period (lines)
   
   constant H_POL : std_logic := '1';
   constant V_POL : std_logic := '1';
