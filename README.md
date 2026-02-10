@@ -9,6 +9,18 @@ This project consists of several components:
 * scripts: Additional project management scripts:
   * `sh scripts/run_updatemem.sh` combines sw (elf) and hw (mmi, bitstream) into a single bit file. Note: error on missing .ltx file is expected when no ILA is present in hw.
 
+In addition to normal checkout procedures, rebuild the project while working around some vitis bugs, use:
+
+- Use normal Vivado checkout and rebuild process, export hw to handoff folder and sw/src/platform
+- Launch Vitis
+- Terminal -> New Terminal
+- `vitis -s .../basys-3-emc/sw/scripts/checkout.py`
+- Then Set Workspace to ws
+- Rebuild if needed (in case of clang issues)
+- Switch to VS code or bash and run `sh .../basys-3-emc/scripts/run_updatemem.sh`
+- Check that top_out.bit has successfully been generated
+- Run the project by running `py .../basys-3-emc/host/gui.py`.
+
 This project exercises the various peripherals of the Basys 3:
 
 * Flash: programmed at the start of the test with a known set of random data, then read back via AXI QSPI on a command sent from host to sw.

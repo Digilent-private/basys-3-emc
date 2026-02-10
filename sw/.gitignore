@@ -4,6 +4,7 @@
 !src
 !src/**
 !ws
-!ws/**
+ws/**
+!ws/.keep
 !scripts
 !.gitignore
