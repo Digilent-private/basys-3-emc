@@ -19,7 +19,8 @@ In addition to normal checkout procedures, rebuild the project while working aro
 - Rebuild if needed (in case of clang issues)
 - Switch to VS code or bash and run `sh .../basys-3-emc/scripts/run_updatemem.sh`
 - Check that top_out.bit has successfully been generated
-- Run the project by running `py .../basys-3-emc/host/gui.py`.
+- Run the project by running `py .../basys-3-emc/host/gui.py COM#`, where COM# is the serial port associated with the Basys
+- Manually package a release by zipping the contents of the host folder
 
 This project exercises the various peripherals of the Basys 3:
 
