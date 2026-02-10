@@ -340,9 +340,9 @@ proc create_hier_cell_clocks { parentCell nameHier } {
   set clk_wiz_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz clk_wiz_1 ]
   set_property -dict [list \
     CONFIG.CLKOUT1_DRIVES {BUFG} \
-    CONFIG.CLKOUT1_JITTER {118.290} \
+    CONFIG.CLKOUT1_JITTER {122.344} \
     CONFIG.CLKOUT1_PHASE_ERROR {97.646} \
-    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {162} \
+    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {135} \
     CONFIG.CLKOUT2_DRIVES {BUFG} \
     CONFIG.CLKOUT2_JITTER {368.995} \
     CONFIG.CLKOUT2_PHASE_ERROR {479.985} \
@@ -355,7 +355,7 @@ proc create_hier_cell_clocks { parentCell nameHier } {
     CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} \
     CONFIG.MMCM_BANDWIDTH {OPTIMIZED} \
     CONFIG.MMCM_CLKFBOUT_MULT_F {10.125} \
-    CONFIG.MMCM_CLKOUT0_DIVIDE_F {6.250} \
+    CONFIG.MMCM_CLKOUT0_DIVIDE_F {7.500} \
     CONFIG.MMCM_CLKOUT1_DIVIDE {1} \
     CONFIG.MMCM_COMPENSATION {ZHOLD} \
     CONFIG.MMCM_DIVCLK_DIVIDE {1} \
