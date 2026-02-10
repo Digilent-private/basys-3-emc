@@ -312,11 +312,20 @@ module top (
     );
     
     
-    logic [14:0] status_leds;
+    logic [15:0] status_leds;
     logic mouse_disconnect;
     logic bram_error;
+    logic any_error;
     
-    always_comb status_leds = {dio_error, 7'b0, uart_error, mouse_disconnect, flash_error, bram_error};
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            any_error <= 'b0;
+        end else if (|status_leds[15:1]) begin
+            any_error <= 1'b1;
+        end
+    end
+    
+    always_comb status_leds = {dio_error, 7'b0, uart_error, mouse_disconnect, flash_error, bram_error, any_error};
     
     status_leds #(
         .HANDLE_CLEAR_INTERNALLY (1),
