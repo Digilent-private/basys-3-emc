@@ -342,8 +342,8 @@ void ProcessCommands() {
 			case 'q':
 				receive(&uart, buffer, 8);
 				hextoint(&data, buffer, 8);
-				pass = ValidateAgainstLfsr(&spi, data, &error_count, &first, &last);
-				if (!pass) ToggleFlashErr();
+				if (ValidateAgainstLfsr(&spi, data, &error_count, &first, &last) != XST_SUCCESS)
+					ToggleFlashErr();
 				inttohex(pass, buffer, 1);
 				send(&uart, buffer, 1);
 				inttohex(error_count, buffer, 8);
